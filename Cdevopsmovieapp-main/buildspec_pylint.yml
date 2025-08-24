@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt-get update -y
+      - apt-get install -y python3-pip
+      - pip3 install pylint  # Install Pylint
+
+  pre_build:
+    commands:
+      - echo "Installing project dependencies..."
+      - pip3 install -r requirements.txt
+
+  build:
+    commands:
+      - echo "Navigating to the correct directory..."
+      - cd $CODEBUILD_SRC_DIR  # Use the dynamically set directory path from CodeBuild
+      - echo "Running Pylint for Static Code Analysis..."
+      - pylint movie_booking.booking --disable=C,W,R --output-format=parseable > pylint-report.txt || true  # Use dot notation for Python package/module
+      - cat pylint-report.txt  # Show pylint output in the logs
+
+  post_build:
+    commands:
+      - echo Build phase complete.
+
+artifacts:
+  files:
+    - '**/*'

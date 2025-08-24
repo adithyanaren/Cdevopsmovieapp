@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="0.863" timestamp="2025-04-03T11:07:44.864073+01:00" hostname="DESKTOP-GB108BE"><testcase classname="" name="movie_booking.movie_booking_app.movie_booking.tests.test_models" time="0.000"><error message="collection failure">ImportError while importing test module 'D:\CDEVOPS\Cdevopsmovieapp-main\Cdevopsmovieapp-main\movie_booking\movie_booking_app\movie_booking\tests\test_models.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+C:\Program Files\Python310\lib\importlib\__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+movie_booking\movie_booking_app\movie_booking\tests\test_models.py:2: in &lt;module&gt;
+    from booking.models import Movie, ShowTime, Ticket, Payment
+E   ModuleNotFoundError: No module named 'booking'</error></testcase></testsuite></testsuites>
